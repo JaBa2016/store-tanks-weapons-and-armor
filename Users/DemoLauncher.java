@@ -6,7 +6,10 @@ import java.util.List;
 public class DemoLauncher {
 
     public static void main(String[] args) {
-        List<User> users = new ArrayList<>();
+        Buffer base = new Buffer();
+
+        List<User> users = base.getUsers();
+
         createUsers(users);
         System.out.println(users.size());
 

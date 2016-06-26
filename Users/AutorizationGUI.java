@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 public class AutorizationGUI extends JFrame{
 
     private JFrame autor;
-    private JPasswordField passwordField1;
-    private JTextField textField1;
+    private Buffer buffer;
 
-    public AutorizationGUI() throws HeadlessException {
+    public AutorizationGUI(Buffer buffer) throws HeadlessException {
+        this.buffer = buffer;
         autor = new JFrame();
 
         autor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,13 +32,18 @@ public class AutorizationGUI extends JFrame{
         JTextField tfLogin = new JTextField(20);
 
         JLabel lPassword = new JLabel("Password: ");
-        JPasswordField tfPassword = new JPasswordField(20);
+        JPasswordField jpPassword = new JPasswordField(20);
 
         JButton jbLogin = new JButton("Login");
         jbLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(" RUN LOGIN ");
+                System.out.println("***** LOGIN ***********");
+                String login = tfLogin.getText();
+                String password = jpPassword.getText();
+
+                Authorization autor = new Authorization(login, password, buffer);
+
             }
         });
 
@@ -57,7 +62,7 @@ public class AutorizationGUI extends JFrame{
 
         autorizaton.add(lPassword, new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.LINE_START, GridBagConstraints.NONE,
                 new Insets(5, 0, 0, 0), 0, 0));
-        autorizaton.add(tfPassword, new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.LINE_START, GridBagConstraints.NONE,
+        autorizaton.add(jpPassword, new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.LINE_START, GridBagConstraints.NONE,
                 new Insets(5, 0, 0, 0), 0, 0));
 
         autorizaton.add(jbLogin, new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.LINE_START, GridBagConstraints.NONE,

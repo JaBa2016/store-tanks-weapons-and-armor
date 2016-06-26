@@ -8,10 +8,6 @@ public class Passwd {
 
     private String passwd;
 
-//    public Passwd(String passwd) {
-//        passwd = md5Custom(passwd);
-//    }
-
     public Passwd() {
     }
 
@@ -25,8 +21,6 @@ public class Passwd {
             messageDigest.update(st.getBytes());
             digest = messageDigest.digest();
         } catch (NoSuchAlgorithmException e) {
-            // тут можно обработать ошибку
-            // возникает она если в передаваемый алгоритм в getInstance(,,,) не существует
             e.printStackTrace();
         }
 

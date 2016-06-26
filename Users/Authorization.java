@@ -17,7 +17,6 @@ public class Authorization {
 
     }
 
-
     public boolean isLogin() {
         return login;
     }

@@ -1,5 +1,6 @@
 package Users;
 
+import javax.swing.*;
 import java.util.List;
 
 public class Authorization {
@@ -16,14 +17,38 @@ public class Authorization {
         String passwdMD5 = new Passwd().md5Custom(passwd);
         this.login = verifyUser(login);
         this.passwd = verifyPassword(passwdMD5);
+
+        checkStateLogin();
+
+    }
+
+    private void checkStateLogin() {
+        if(login){
+            new LoginIsCorrectGUI();
+        }
+    }
+
+    private void checkPassword() {
+        if(passwd == false){
+            System.out.println("Password not corect");
+        }
+    }
+
+    private void checkLogin() {
+        if(login == false){
+            System.out.println("Login not corect");
+        }
     }
 
     private boolean verifyUser(String user) {
         List<User> users = buffer.getUsers();
+        long id = 0;
         for (User u : users) {
             if (u.getLogin().equals(user)) {
+                userID = (int) id;
                 login = true;
             }
+            id++;
         }
         return login;
     }

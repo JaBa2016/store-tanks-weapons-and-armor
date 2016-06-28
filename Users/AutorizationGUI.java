@@ -43,6 +43,9 @@ public class AutorizationGUI extends JFrame{
                 String login = tfLogin.getText();
                 String password = jpPassword.getText();
                 Authorization autor = new Authorization(login, password, buffer);
+
+
+
             }
         });
 

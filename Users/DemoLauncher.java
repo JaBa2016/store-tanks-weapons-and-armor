@@ -8,7 +8,8 @@ public class DemoLauncher {
         Buffer base = new Buffer();
         List<User> users = base.getUsers();
         createUsers(users);
-        AutorizationGUI auturizGUI = new AutorizationGUI(base);
+     //   AutorizationGUI auturizGUI = new AutorizationGUI(base);
+        View view = new View(base);
     }
 
     public static void createUsers(List<User> users){

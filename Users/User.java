@@ -1,21 +1,36 @@
 package Users;
 
+import java.awt.*;
+
 public class User {
 
-    private int id;
+    private long id;
     private String login;
     private String passwd;
+
     private String firstName;
     private String secondName;
+
     private String email;
     private double balance;
     private double spent;
     private UsersGroup groups;
 
+    public Image getImgUser() {
+        return imgUser;
+    }
+
+    public void setImgUser(Image imgUser) {
+        this.imgUser = imgUser;
+    }
+
+    private Image imgUser;
+
+
     public User() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

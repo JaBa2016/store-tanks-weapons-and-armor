@@ -1,25 +1,14 @@
 package Users;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DemoLauncher {
 
     public static void main(String[] args) {
         Buffer base = new Buffer();
-
         List<User> users = base.getUsers();
-
         createUsers(users);
-        System.out.println(users.size());
-
-        for (User u: users) {
-            System.out.println("Login: " + u.getLogin());
-            System.out.println("Passwd: " + u.getPasswd());
-        }
-
-        AutorizationGUI auturizGUI = new AutorizationGUI();
-
+        AutorizationGUI auturizGUI = new AutorizationGUI(base);
     }
 
     public static void createUsers(List<User> users){
@@ -39,5 +28,4 @@ public class DemoLauncher {
         usr3.setPasswd("one");
         users.add(usr3);
     }
-
 }
